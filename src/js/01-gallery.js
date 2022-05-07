@@ -1,8 +1,13 @@
+
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 // Change code below this line
-
 console.log(galleryItems);
+
+
+// Дополнительный импорт стилей
+import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from "simplelightbox";
 
 const addGalleryItems = document.querySelector('.gallery');//поиск класса в HTML
 const galleryMarkup = createGallereyCard(galleryItems);//ссылка на createGallereyCard
@@ -14,22 +19,19 @@ addGalleryItems.insertAdjacentHTML("beforeend", galleryMarkup);//добавле�
 function createGallereyCard(galleryItems) {
     return galleryItems.map(({ preview, original, description }) => {
         return `
-       
-            <a class="gallery__item" href="${original}">
-            <img class="gallery__image" src="${preview}" alt="${description}" />
-            </a>
         
-    `;
+        <a class="gallery__item" href="${original}">
+        <img class="gallery__image" src="${preview}" alt="${description}" />
+        </a>
+        
+        `;
     })
-        .join(''); 
+    .join(''); 
 }
 
-// function handGalleryClick(event) {
-//   event.preventDefault();
-//     const isGalleryEl = event.target.classList.contains('.gallery__image');
-    
-//     if (isGalleryEl) {
-//         return ;
-//     }
-// }
-var lightbox = new SimpleLightbox('.gallery a', {captionsData: "alt", captionPosition: 'bottom', captionDelay: 250, });
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  showCounter: false,
+})
+
