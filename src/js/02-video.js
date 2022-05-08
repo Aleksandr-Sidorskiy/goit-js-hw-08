@@ -1,24 +1,39 @@
+import Vimeo from "@vimeo/player";
 
-    const iframe = document.querySelector('iframe');
-    const player = new Vimeo.Player(iframe);
+// ______________________________________________
+const iframe = document.querySelector('iframe');
+const player = new Vimeo.Player(iframe, options);
 
-    player.on('play', function() {
-        console.log('played the video!');
-    });
+player.on('play', function() {
+    console.log('played the video!');
+});
 
-    player.getVideoTitle().then(function(title) {
-        console.log('title:', title);
-    });
+player.getVideoTitle().then(function(title) {
+    console.log('title:', title);
+});
+// ______________________________________________
+const options = {
+    duration: 61.857,
+    percent: 0.049,
+    seconds: 3.034,
+}
+iframe.addEventListener()
+function handTextAreaInput(evt) {
+    const message = evt.target.value;
+    localStorage.setItem(STORAGE_KEY, message);
+  
+}
 
-const onPlay = function(data) {
-    // data is an object containing properties specific to that event
-    data.on('play', onPlay);
+
+const VIMEO_KEY = "videoplayer-current-time";
+populateTextarea();
+function populateTextarea() {
+    // const savedMessage = localStorage.getItem(JSON.stringify(formData));
+  const savedTime = localStorage.getItem(STORAGE_KEY);
+      console.log(savedMessage);
+  if (savedMessage) {
+      textareaEl.value = savedMessage;
+      
+  }
     
-    // If later on you decide that you don’t need to listen for play anymore.
-    data.off('play', onPlay);
-    
-    // Alternatively, `off` can be called with just the event name to remove all
-    // listeners.
-    data.off('play');
-};
-
+}
