@@ -51,7 +51,7 @@ function populateTextarea() {
     
 }
 
-const formData = {};
+let formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
 
 formEl.addEventListener('input', e => {
   // console.log(e.target.name);
