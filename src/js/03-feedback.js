@@ -17,9 +17,17 @@ function handInputType(e) {
 }
 // выводит в консоль значение email and message
 function handFormSubmit(evt) {
-    evt.preventDefault();
+  evt.preventDefault();
+  
+  const {
+    elements: { email, message }
+  } = evt.currentTarget;
+  if (email.value === "" || message.value === "") {
+    return console.log("Please fill in all the fields!");
+  }
+  console.log(`email: ${email.value},Message: ${message.value}`);
     
-   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
+  //  console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   
   evt.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
