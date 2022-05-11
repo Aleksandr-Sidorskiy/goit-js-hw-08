@@ -27,7 +27,7 @@ function handFormSubmit(evt) {
   }
   console.log(`email: ${email.value},Message: ${message.value}`);
     
-  //  console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
+   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   
   evt.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
