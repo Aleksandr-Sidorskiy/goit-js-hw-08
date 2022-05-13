@@ -11,9 +11,11 @@ initForm()
 const formData =  {} ;
 // сохраняет локально ключ и значение ключа в обьект
 function handInputType(e) {
-    formData[e.target.name] = e.target.value;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-        console.log(formData);
+  let feedback = localStorage.getItem(STORAGE_KEY);
+  feedback = feedback ? JSON.parse(feedback) : {};
+   feedback[e.target.name] = e.target.value;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(feedback));
+        
 }
 // выводит в консоль значение email and message
 function handFormSubmit(evt) {
